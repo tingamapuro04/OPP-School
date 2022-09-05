@@ -1,62 +1,38 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Project Name
+OOP School library
 
 > Description the project.
+A project where we use classes to keep track of library activities
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
+- Ruby
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+A laptop, basic knowledge of ruby and of working with classes
 
 ### Setup
+- Open a terminal of your choice and enter git clone [Link] (https://github.com/tingamapuro04/OPP-School.git)
+
+- Navigate to the directory OOP-School
+- Enter code . to open the project on on your editor
 
 ### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+You don't need any installation for this project
 
 ## Authors
 
-👤 **Author1**
+👤 **Alphonce Mobutu**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/tingamapuro04)
 
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
 
 ## Show your support
 
