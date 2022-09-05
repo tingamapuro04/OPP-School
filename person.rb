@@ -1,3 +1,6 @@
+require './student'
+require './teacher'
+
 class Person
   attr_accessor :name, :age
   attr_reader :id
@@ -20,6 +23,7 @@ class Person
   end
 end
 
-me = Person.new(10, 'alphonce')
+Person.new(34, 'Adoyo')
+me = Student.new('STD 6')
 
-p me.can_use_services
+p me.play_hooky
