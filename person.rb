@@ -16,10 +16,10 @@ class Person
   private
 
   def of_age
-    return true if @age >= 18d
+    return true if @age >= 18
   end
 end
 
-me = Person.new('alphonce', 1)
+me = Person.new(10, 'alphonce')
 
 p me.can_use_services
