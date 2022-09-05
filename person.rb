@@ -1,6 +1,7 @@
 class Person
   attr_accessor :name, :age
   attr_reader :id
+
   def initialize(name = "Unknown", age)
     @id = Random.rand(1...1000)
     @name = name
@@ -13,6 +14,7 @@ class Person
   end
 
   private
+
   def is_of_age
     if @age >= 18
       return true
@@ -20,13 +22,8 @@ class Person
       return false
     end
   end
-
 end
-
 
 me = Person.new('alphonce', 1)
 
-
-
 p me.can_use_services
-
