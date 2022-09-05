@@ -22,4 +22,3 @@ class Person
     return true if @age >= 18
   end
 end
-
