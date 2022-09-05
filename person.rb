@@ -23,7 +23,3 @@ class Person
   end
 end
 
-Person.new(34, 'Adoyo')
-me = Student.new('STD 6')
-
-p me.play_hooky
