@@ -1,5 +1,5 @@
-require './student'
-require './teacher'
+require_relative './student'
+require_relative './teacher'
 
 class Person
   attr_accessor :name, :age
