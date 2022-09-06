@@ -16,6 +16,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = true
+    super
   end
 
   def can_use_services()
@@ -38,6 +39,7 @@ class Decorator < Nameable
 
   def initialize(nameable)
     @nameable = nameable
+    super
   end
 
   def correct_name
@@ -47,7 +49,7 @@ end
 
 class CapitalizeDecorator < Decorator
   def correct_name
-    @nameable.correct_name.capitalize()
+    @nameable.correct_name.capitalize
   end
 end
 
