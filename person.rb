@@ -1,11 +1,15 @@
 require_relative './student'
 require_relative './teacher'
+require_relative './nameable'
+require_relative './trimmer_Decorator'
+require_relative './capitalize_Decorator'
 
-class Person
+class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id
 
   def initialize(age, name = 'Unknown')
+    super
     @id = Random.rand(1...1000)
     @name = name
     @age = age
@@ -16,6 +20,10 @@ class Person
     of_age or @parent_permission
   end
 
+  def correct_name
+    @name
+  end
+
   private
 
   def of_age()
@@ -23,4 +31,15 @@ class Person
   end
 end
 
+class Decorator < Nameable
+  attr_accessor :nameable
 
+  def initialize(nameable)
+    super
+    @nameable = nameable
+  end
+
+  def correct_name
+    @nameable.correct_name
+  end
+end
