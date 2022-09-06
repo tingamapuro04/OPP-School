@@ -16,7 +16,6 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = true
-    
   end
 
   def can_use_services()
