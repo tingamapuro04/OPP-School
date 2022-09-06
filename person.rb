@@ -16,7 +16,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = true
-    super
+    
   end
 
   def can_use_services()
@@ -39,7 +39,6 @@ class Decorator < Nameable
 
   def initialize(nameable)
     @nameable = nameable
-    super
   end
 
   def correct_name
@@ -55,10 +54,13 @@ end
 
 class TrimmerDecorator < Decorator
   def correct_name
-    if @nameable.correct_name.length > 10
-      return @nameable.correct_name[0..9]
-    end
-
-    @nameable.correct_name
+    @nameable.correct_name[0..9] if @nameable.correct_name.length > 10 || @nameable.correct_name
   end
 end
+
+person = Person.new(22, 'maximilianu99999s')
+p person.correct_name
+capitalizedPerson = CapitalizeDecorator.new(person)
+p capitalizedPerson.correct_name
+capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
+p capitalizedTrimmedPerson.correct_name
