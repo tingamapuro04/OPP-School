@@ -23,6 +23,4 @@ class Person
   end
 end
 
-Person.new()
-stud = Student.new('STD 4')
-stud.play_hooky()
+
