@@ -1,11 +1,9 @@
-# require_relative './student'
-# require_relative './teacher'
+require_relative './student'
+require_relative './teacher'
+require_relative './nameable'
+require_relative './trimmerDecorator'
+require_relative './capitalizeDecorator'
 
-class Nameable
-  def correct_name
-    raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
-  end
-end
 
 class Person < Nameable
   attr_accessor :name, :age
@@ -47,14 +45,5 @@ class Decorator < Nameable
   end
 end
 
-class CapitalizeDecorator < Decorator
-  def correct_name
-    @nameable.correct_name.capitalize
-  end
-end
 
-class TrimmerDecorator < Decorator
-  def correct_name
-    @nameable.correct_name[0..9] if @nameable.correct_name.length > 10 || @nameable.correct_name
-  end
-end
+
