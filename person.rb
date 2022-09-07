@@ -11,7 +11,7 @@ class Nameable
 end
 
 class Person < Nameable
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :class1
   attr_reader :id
 
   def initialize(age, name = 'Unknown')
@@ -28,6 +28,11 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def class1=(class1)
+    @class1 = class1
+    class1.students.push(self) unless class1.students.include?(self)
   end
 
   private
@@ -72,11 +77,25 @@ class Classroom
 
   def add_student(student)
     @students.push(student)
+    student.class1 = self
   end
 
+end
+
+
+class Book
+  attr_reader :borrowings
+  attr_accessor :title, :author
+  def initialize(title, author)
+    @title = title
+    @author = author
+    @borrowings = []
+  end
 end
 
 student_1 = Student.new(23, 'alphonce', 101)
 economics = Classroom.new('economics')
 economics.add_student(student_1)
-p economics.students.first
+student_1.class1 = economics
+p student_1.class1.label
+p economics.students
