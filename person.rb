@@ -4,12 +4,18 @@
 # require_relative './trimmer_Decorator'
 # require_relative './capitalize_Decorator'
 
+class Nameable
+  def correct_name
+    raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
+  end
+end
+
 class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id
 
   def initialize(age, name = 'Unknown')
-    super
+    # super
     @id = Random.rand(1...1000)
     @name = name
     @age = age
@@ -35,7 +41,7 @@ class Decorator < Nameable
   attr_accessor :nameable
 
   def initialize(nameable)
-    super
+    # super
     @nameable = nameable
   end
 
@@ -45,7 +51,7 @@ class Decorator < Nameable
 end
 
 class Student < Person
-  def initialize(classroom)
+  def initialize(name, age, classroom)
     super(name, age)
     @classroom = classroom
   end
@@ -56,9 +62,21 @@ class Student < Person
 end
 
 
-class classroom
+class Classroom
   attr_accessor :label
+  attr_reader :students
   def initialize(label)
     @label = label
+    @students = []
   end
+
+  def add_student(student)
+    @students.push(student)
+  end
+
 end
+
+student_1 = Student.new(23, 'alphonce', 101)
+economics = Classroom.new('economics')
+economics.add_student(student_1)
+p economics.students.first
