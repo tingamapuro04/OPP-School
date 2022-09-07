@@ -1,7 +1,6 @@
 require_relative './person'
 class Rental
-  attr_reader :person, :book
-  attr_accessor :date
+  attr_accessor :date, :person, :book
 
   def initialize(date, person, book)
     @date = date
@@ -10,6 +9,6 @@ class Rental
     person.borrowings << self
 
     @book = book
-    person.borrowings << self
+    book.borrowings << self
   end
 end

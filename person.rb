@@ -17,7 +17,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = true
-    @borrowings = []
+    @borrowings = borrowings
   end
 
   def can_use_services()
@@ -28,9 +28,8 @@ class Person < Nameable
     @name
   end
 
-  def class1=(class1)
-    @class1 = class1
-    class1.students.push(self) unless class1.students.include?(self)
+  def add_borrow(book)
+    @borrowings.push(book)
   end
 
   private
