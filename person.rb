@@ -1,8 +1,11 @@
-# require_relative './student'
-# require_relative './teacher'
-# require_relative './nameable'
-# require_relative './trimmer_Decorator'
-# require_relative './capitalize_Decorator'
+require_relative './student'
+require_relative './teacher'
+require_relative './nameable'
+require_relative './trimmer_Decorator'
+require_relative './capitalize_Decorator'
+require_relative './rental'
+require_relative './book'
+require_relative './classroom'
 
 class Person < Nameable
   attr_accessor :name, :age, :class1
@@ -49,23 +52,3 @@ class Decorator < Nameable
     @nameable.correct_name
   end
 end
-
-class Rental
-  attr_reader :person, :book
-  attr_accessor :date
-  def initialize(date, person, book)
-    @date = date
-
-    @person = person
-    person.borrowings << self
-
-    @book = book
-    person.borrowings << self
-  end
-end
-
-
-student_1 = Student.new(101, "Adoyo", 35)
-vet_maria = Book.new("Maria", "New York")
-visit_1 = Rental.new("2017-12-22", student_1, vet_maria)
-
