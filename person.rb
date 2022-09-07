@@ -12,7 +12,7 @@ end
 
 class Person < Nameable
   attr_accessor :name, :age, :class1
-  attr_reader :id
+  attr_reader :id, :borrowings
 
   def initialize(age, name = 'Unknown')
     # super
@@ -20,6 +20,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = true
+    @borrowings = []
   end
 
   def can_use_services()
@@ -56,7 +57,7 @@ class Decorator < Nameable
 end
 
 class Student < Person
-  def initialize(name, age, classroom)
+  def initialize(classroom, name, age)
     super(name, age)
     @classroom = classroom
   end
@@ -93,9 +94,22 @@ class Book
   end
 end
 
-student_1 = Student.new(23, 'alphonce', 101)
-economics = Classroom.new('economics')
-economics.add_student(student_1)
-student_1.class1 = economics
-p student_1.class1.label
-p economics.students
+class Rental
+  attr_reader :person, :book
+  attr_accessor :date
+  def initialize(date, person, book)
+    @date = date
+
+    @person = person
+    person.borrowings << self
+
+    @book = book
+    person.borrowings << self
+  end
+end
+
+
+student_1 = Student.new(101, "Adoyo", 35)
+vet_maria = Book.new("Maria", "New York")
+visit_1 = Rental.new("2017-12-22", student_1, vet_maria)
+
