@@ -3,10 +3,13 @@ require_relative './teacher'
 require_relative './nameable'
 require_relative './trimmer_Decorator'
 require_relative './capitalize_Decorator'
+require_relative './rental'
+require_relative './book'
+require_relative './classroom'
 
 class Person < Nameable
   attr_accessor :name, :age
-  attr_reader :id
+  attr_reader :id, :borrowings
 
   def initialize(age, name = 'Unknown')
     super
@@ -14,6 +17,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = true
+    @borrowings = borrowings
   end
 
   def can_use_services()
@@ -22,6 +26,10 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def add_borrow(book)
+    @borrowings.push(book)
   end
 
   private
