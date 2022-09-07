@@ -4,12 +4,6 @@
 # require_relative './trimmer_Decorator'
 # require_relative './capitalize_Decorator'
 
-class Nameable
-  def correct_name
-    raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
-  end
-end
-
 class Person < Nameable
   attr_accessor :name, :age, :class1
   attr_reader :id, :borrowings
@@ -53,44 +47,6 @@ class Decorator < Nameable
 
   def correct_name
     @nameable.correct_name
-  end
-end
-
-class Student < Person
-  def initialize(classroom, name, age)
-    super(name, age)
-    @classroom = classroom
-  end
-
-  def play_hooky()
-    puts "¯\(ツ)/¯"
-  end
-end
-
-
-class Classroom
-  attr_accessor :label
-  attr_reader :students
-  def initialize(label)
-    @label = label
-    @students = []
-  end
-
-  def add_student(student)
-    @students.push(student)
-    student.class1 = self
-  end
-
-end
-
-
-class Book
-  attr_reader :borrowings
-  attr_accessor :title, :author
-  def initialize(title, author)
-    @title = title
-    @author = author
-    @borrowings = []
   end
 end
 
