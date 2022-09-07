@@ -8,11 +8,11 @@ require_relative './book'
 require_relative './classroom'
 
 class Person < Nameable
-  attr_accessor :name, :age, :class1
+  attr_accessor :name, :age
   attr_reader :id, :borrowings
 
   def initialize(age, name = 'Unknown')
-    # super
+    super
     @id = Random.rand(1...1000)
     @name = name
     @age = age
@@ -44,7 +44,7 @@ class Decorator < Nameable
   attr_accessor :nameable
 
   def initialize(nameable)
-    # super
+    super
     @nameable = nameable
   end
 
