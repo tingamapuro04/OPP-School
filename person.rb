@@ -1,22 +1,19 @@
-require_relative './student'
-require_relative './teacher'
 require_relative './nameable'
-require_relative './trimmer_Decorator'
-require_relative './capitalize_Decorator'
+require_relative './capitalize'
+require_relative './trimmer'
 require_relative './rental'
-require_relative './book'
-require_relative './classroom'
+require 'securerandom'
 
 class Person < Nameable
-  attr_accessor :name, :age
-  attr_reader :id, :borrowings
+  attr_accessor :name, :age, :borrowings, :parent_permission
+  attr_reader :id
 
-  def initialize(age, name = 'Unknown')
-    super
-    @id = Random.rand(1...1000)
+  def initialize(age, parent_permission: true, name: 'Unknown', id: securerandom.hex(5))
+    super()
+    @id = id
     @name = name
     @age = age
-    @parent_permission = true
+    @parent_permission = parent_permission
     @borrowings = borrowings
   end
 
@@ -28,8 +25,12 @@ class Person < Nameable
     @name
   end
 
-  def add_borrow(book)
-    @borrowings.push(book)
+  # def add_borrow(book)
+  #   @borrowings.push(book)
+  # end
+
+  def add_rental(date, book)
+    Rental.new(date, book, self)
   end
 
   private
@@ -43,11 +44,24 @@ class Decorator < Nameable
   attr_accessor :nameable
 
   def initialize(nameable)
-    super
+    super()
     @nameable = nameable
   end
 
   def correct_name
     @nameable.correct_name
+  end
+end
+
+class Capitalize < Decorator
+  def correct_name
+    @nameable.correct_name.capitalize
+  end
+end
+
+
+class Trimmer < Decorator
+  def correct_name
+    @nameable.correct_name[0..9] if @nameable.correct_name.length > 10 || @nameable.correct_name
   end
 end
