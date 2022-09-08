@@ -17,16 +17,4 @@ class Student < Person
     classroom.students.push(self) unless classroom.students.include?(self)
   end
 
-  def to_json(*_args)
-    {
-      class: self.class,
-      id: id,
-      age: age,
-      name: name,
-      parent_permission: parent_permission,
-      classroom: classroom
-    }.to_json
-  end
-
-
 end

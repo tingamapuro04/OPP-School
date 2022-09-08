@@ -24,6 +24,13 @@ class App
     @book << Book.new(title, author)
   end
 
+  def list_books
+    puts
+    @books.each_with_index do |book, index|
+      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
+    end
+  end
+
   def create_person
     puts
     choice = get_input('Do you want to create a student (1) or a teacher (2)').to_i
