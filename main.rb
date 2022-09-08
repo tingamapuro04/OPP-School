@@ -1,14 +1,15 @@
 require './app'
-require './json_db'
 
 def print_options
-  options = ['List all books',
-             'List all people',
-             'Create a person',
-             'Create a book',
-             'Create a rental',
-             'List all rentals for a given person id',
-             'Save & Exit']
+  options = [
+    'List all books',
+    'List all people',
+    'Create a person',
+    'Create a book',
+    'Create a rental',
+    'List all rentals for a given person id',
+    'Save & Exit'
+  ]
   puts 'Please choose an option by entering a number:'
   options.each_with_index do |option, index|
     puts "#{index + 1} - #{option}"
@@ -40,13 +41,11 @@ end
 def main
   puts 'Welcome to School Library App!'
   app = App.new
-  load_state(app)
   exit = false
   while exit == false
     print_options
     exit = execute_option(gets.chomp, app)
   end
-  save_state(app)
   puts 'Thank you for using this app!'
 end
 
