@@ -14,6 +14,7 @@ class Teacher < Person
 
   def to_json(*_args)
     "{
+      \"class\": \"#{self.class}\",
       \"id\": \"#{id}\",
       \"name\": \"#{name}\",
       \"specialization\": \"#{specialization}\",

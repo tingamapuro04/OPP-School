@@ -19,6 +19,7 @@ class Student < Person
 
   def to_json(*_args)
     "{
+      \"class\": \"#{self.class}\",
       \"id\": \"#{id}\",
       \"name\": \"#{name}\",
       \"permission\": \"#{parent_permission}\",
