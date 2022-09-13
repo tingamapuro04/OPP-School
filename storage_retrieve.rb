@@ -5,11 +5,11 @@ def get_people(people)
 
   data.each do |item|
     people << {
-    	id: item["id"],
-    	name: item["name"],
-    	parent_permission: item["permission"],
-    	age: item["age"],
-    	classroom: item["classroom"]
+      id: item["id"],
+      name: item["name"],
+      parent_permission: item["permission"],
+      age: item["age"],
+      classroom: item["classroom"]
     }
   end
 end
