@@ -5,13 +5,14 @@ def get_people(people)
 
   data.each do |person|
     if person['class'] == 'Student'
-      people << Student.new(person['age'], nil, name: person['name'], parent_permission: person['parent_permission'], id: person['id'])
+      people << Student.new(person['age'], nil, name: person['name'],
+                                                parent_permission: person['parent_permission'], id: person['id'])
     else
       people << Teacher.new(person['age'], person['specialization'], name: person['name'], id: person['id'])
     end
   end
 rescue StandardError
-  puts "No student or teacher yet"
+  puts 'No student or teacher yet'
 end
 
 def get_books(books)
@@ -21,7 +22,7 @@ def get_books(books)
     books << Book.new(item['title'], item['author'])
   end
 rescue StandardError
-  puts "No book yet"
+  puts 'No book yet'
 end
 
 def get_rentals(rentals, books, people)
@@ -32,7 +33,7 @@ def get_rentals(rentals, books, people)
     rentals << person.add_rental(rental['date'], book)
   end
 rescue StandardError
-  puts "No rentals yet!"
+  puts 'No rentals yet!'
 end
 
 def get_data(app)
