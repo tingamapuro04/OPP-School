@@ -1,7 +1,7 @@
 require 'json'
 
 def save_people(people)
-  JSON.dump(people, File.open('./database/teacher.json', 'w'))
+  JSON.dump(people, File.open('./database/people.json', 'w'))
 end
 
 def save_book(books)
