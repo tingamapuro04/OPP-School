@@ -13,11 +13,11 @@ class Teacher < Person
   end
 
   def to_json(*_args)
-    {
-      id: id,
-      name: name,
-      specialization: specialization,
-      age: age
-    }
+    "{
+      \"id\": \"#{id}\",
+      \"name\": \"#{name}\",
+      \"specialization\": \"#{specialization}\",
+      \"age\": #{age}
+    }"
   end
 end

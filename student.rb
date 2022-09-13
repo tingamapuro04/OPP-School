@@ -18,13 +18,13 @@ class Student < Person
   end
 
   def to_json(*_args)
-    {
-      id: id,
-      name: name,
-      parent_permission: parent_permission
-      age: age,
-      classroom: classroom
-    }
+    "{
+      \"id\": \"#{id}\",
+      \"name\": \"#{name}\",
+      \"permission\": \"#{parent_permission}\",
+      \"age\": #{age},
+      \"classroom\": \"#{classroom}\"
+    }"
   end
 
 

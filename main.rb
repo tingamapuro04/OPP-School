@@ -42,12 +42,12 @@ end
 def main
   puts 'Welcome to School Library App!'
   app = App.new
-  save_data(app)
   exit = false
   while exit == false
     print_options
     exit = execute_option(gets.chomp, app)
   end
+  save_data(app)
   puts 'Thank you for using this app!'
 end
 
