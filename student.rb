@@ -16,4 +16,16 @@ class Student < Person
   def play_hooky
     "¯\(ツ)/¯"
   end
+
+  def to_json(*_args)
+    {
+      id: id,
+      name: name,
+      parent_permission: parent_permission
+      age: age,
+      classroom: classroom
+    }
+  end
+
+
 end
