@@ -3,17 +3,9 @@ require 'json'
 def get_people(people)
   data = JSON.parse(File.read('./database/people.json'))
 
-  data.each do |item|
-    # people << {
-    #   id: item["id"],
-    #   name: item["name"],
-    #   parent_permission: item["permission"],
-    #   age: item["age"],
-    #   classroom: item["classroom"]
-    # }
-    if item['class'] == 'Student'
-      people << Student.new(person['age'], nil, name: person['name'],
-                                                parent_permission: person['parent_permission'], id: person['id'])
+  data.each do |person|
+    if person['class'] == 'Student'
+      people << Student.new(person['age'], nil, name: person['name'], parent_permission: person['parent_permission'], id: person['id'])
     else
       people << Teacher.new(person['age'], person['specialization'], name: person['name'], id: person['id'])
     end

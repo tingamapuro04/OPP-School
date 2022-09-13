@@ -1,1 +1,14 @@
-[]
+[{
+      "class": "Student",
+      "id": "07dc2e141c",
+      "name": "Mobutu",
+      "permission": "",
+      "age": 24,
+      "classroom": ""
+    },{
+      "class": "Teacher",
+      "id": "ced7db0a3e",
+      "name": "Ligwaw",
+      "specialization": "Maths",
+      "age": 45
+    }]
