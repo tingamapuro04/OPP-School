@@ -1,5 +1,6 @@
 require './app'
 require './storage'
+require './storage_retrieve'
 
 def print_options
   options = [
@@ -42,6 +43,7 @@ end
 def main
   puts 'Welcome to School Library App!'
   app = App.new
+  get_data(app)
   exit = false
   while exit == false
     print_options
