@@ -28,3 +28,5 @@ class Student < Person
     }"
   end
 end
+
+
