@@ -14,6 +14,4 @@ describe 'Student' do
   it 'test classroom' do
     expect(student1.classroom).to respond_to(:length)
   end
-
-
 end
